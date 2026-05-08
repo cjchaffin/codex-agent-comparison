@@ -1,0 +1,143 @@
+:root {
+  --ink: #17202a;
+  --muted: #5b6675;
+  --paper: #fffaf1;
+  --panel: #ffffff;
+  --line: #d9d4ca;
+  --blue: #22577a;
+  --green: #4f7f52;
+  --red: #b14a3b;
+  --gold: #d39b30;
+  --aqua: #2f8a8a;
+  --shadow: 0 18px 50px rgba(23, 32, 42, 0.14);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: inherit; }
+.hero {
+  min-height: 92vh;
+  padding: 24px clamp(18px, 4vw, 56px) 48px;
+  background: linear-gradient(135deg, rgba(34, 87, 122, 0.92), rgba(79, 127, 82, 0.84)), url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.topbar { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.topbar a {
+  min-height: 38px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+.hero-grid {
+  width: min(1160px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.62fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+.hero .eyebrow { color: #ffd481; }
+h1, h2, h3, p { overflow-wrap: anywhere; }
+h1 {
+  margin: 0;
+  max-width: 780px;
+  font-size: clamp(3rem, 9vw, 7.4rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+.lede {
+  max-width: 650px;
+  font-size: clamp(1.08rem, 2vw, 1.36rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+}
+.button.primary { background: #ffd481; color: #1d2a33; }
+.button.secondary { border: 1px solid rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.12); }
+.scoreboard { display: grid; gap: 14px; }
+.scoreboard > div, .recommendation, .comparison-panel article, .take-grid article, .steps article {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.93);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.scoreboard > div { padding: 22px; }
+.scoreboard strong { display: block; margin: 8px 0; font-size: 1.6rem; }
+.scoreboard p, .take-grid p, .steps p, .recommendation p { color: var(--muted); line-height: 1.6; }
+.label { color: var(--red); font-size: 0.76rem; text-transform: uppercase; font-weight: 900; letter-spacing: 0; }
+.band { padding: 76px clamp(18px, 5vw, 70px); }
+.section-heading { width: min(1060px, 100%); margin: 0 auto 28px; }
+.section-heading h2 { margin: 0; max-width: 820px; font-size: clamp(2rem, 4vw, 4rem); line-height: 1; letter-spacing: 0; }
+.take-grid, .scenario-grid, .comparison-panel, .steps { width: min(1060px, 100%); margin: 0 auto; }
+.take-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.take-grid article, .steps article { padding: 24px; background: var(--panel); }
+.take-grid h3, .steps h3, .comparison-panel h3 { margin: 0 0 10px; font-size: 1.2rem; }
+.scenario { background: #eef4f2; }
+.scenario-grid { display: grid; grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1fr); gap: 20px; align-items: start; }
+.controls { display: grid; gap: 14px; }
+.controls label { display: grid; gap: 8px; font-weight: 800; }
+select { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--ink); background: white; font: inherit; }
+.recommendation { padding: 28px; background: white; }
+.recommendation h2 { margin: 8px 0 10px; font-size: clamp(1.8rem, 3vw, 3rem); }
+.meter { display: grid; gap: 14px; margin-top: 24px; }
+.meter > div { display: grid; grid-template-columns: 110px 1fr 42px; gap: 12px; align-items: center; }
+.bar { height: 12px; border-radius: 999px; background: #e7e2d8; overflow: hidden; }
+.bar i { display: block; width: 50%; height: 100%; border-radius: inherit; background: var(--blue); transition: width 180ms ease; }
+.meter > div:nth-child(2) .bar i { background: var(--aqua); }
+.compare { background: #fbf6ea; }
+.tabs { width: min(1060px, 100%); margin: 0 auto 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { border: 1px solid var(--line); border-radius: 8px; min-height: 42px; padding: 9px 13px; background: white; color: var(--ink); font: inherit; font-weight: 800; cursor: pointer; }
+.tab.active { background: var(--blue); border-color: var(--blue); color: white; }
+.comparison-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.comparison-panel article { padding: 26px; background: white; }
+.comparison-panel ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.65; }
+.comparison-panel li + li { margin-top: 8px; }
+.roadmap { background: #f7fbfb; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.steps span { display: inline-grid; place-items: center; width: 34px; height: 34px; margin-bottom: 18px; border-radius: 50%; background: var(--green); color: white; font-weight: 900; }
+.sources { background: #1f2b33; color: white; }
+.sources .section-heading, .sources ul { width: min(1060px, 100%); margin-left: auto; margin-right: auto; }
+.sources ul { display: grid; gap: 10px; padding-left: 20px; color: rgba(255, 255, 255, 0.85); }
+.sources a { color: #ffd481; }
+@media (max-width: 820px) {
+  .hero { min-height: auto; }
+  .topbar { justify-content: flex-start; }
+  .hero-grid, .scenario-grid, .comparison-panel, .take-grid, .steps { grid-template-columns: 1fr; }
+  .hero-grid { margin-top: 56px; }
+  .meter > div { grid-template-columns: 88px 1fr 38px; }
+}
+@media (max-width: 480px) {
+  .hero-actions, .topbar { display: grid; }
+  .button, .topbar a { width: 100%; justify-content: center; }
+  .band { padding-top: 54px; padding-bottom: 54px; }
+}
