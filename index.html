@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claude Code vs OpenAI Codex</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Page sections">
+        <a href="#recommendation">Recommendation</a>
+        <a href="#compare">Compare</a>
+        <a href="#scenario">Your Setup</a>
+        <a href="#sources">Sources</a>
+      </nav>
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow">Coding agents for a non-coder</p>
+          <h1>Claude Code vs OpenAI Codex</h1>
+          <p class="lede">
+            A practical guide for choosing the coding agent that fits a beginner who wants to work from iOS while away and Windows at home.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#scenario">Tune the recommendation</a>
+            <a class="button secondary" href="#quick-take">Read the quick take</a>
+          </div>
+        </section>
+        <section class="scoreboard" aria-label="Initial recommendation">
+          <div>
+            <span class="label">Starting lean</span>
+            <strong>Codex first</strong>
+            <p>It fits your current ChatGPT + GitHub setup and gives you a Windows desktop path plus cloud tasks.</p>
+          </div>
+          <div>
+            <span class="label">Add later</span>
+            <strong>Claude Code</strong>
+            <p>Great when you are comfortable using a terminal and want a strong command-line coding partner.</p>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <section id="quick-take" class="band quick-take">
+        <div class="section-heading">
+          <p class="eyebrow">Quick take</p>
+          <h2>For your situation, start with Codex.</h2>
+        </div>
+        <div class="take-grid">
+          <article>
+            <h3>Why Codex fits first</h3>
+            <p>
+              You already connected GitHub to Codex, and OpenAI documents Codex as usable through terminal, IDE, cloud delegation, code review, and the Codex desktop app on Windows.
+            </p>
+          </article>
+          <article>
+            <h3>Where Claude Code shines</h3>
+            <p>
+              Claude Code is especially strong if you like terminal-driven work, want scriptable automation, or plan to use GitHub Actions with <code>@claude</code> comments.
+            </p>
+          </article>
+          <article>
+            <h3>The beginner trap</h3>
+            <p>
+              Do not choose based on model fandom. Choose based on where you can comfortably inspect changes, recover from mistakes, and keep learning without friction.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="scenario" class="band scenario">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive fit check</p>
+          <h2>Tell the guide how you work.</h2>
+        </div>
+        <div class="scenario-grid">
+          <form class="controls" aria-label="Preference controls">
+            <label>
+              Coding comfort
+              <select id="comfort">
+                <option value="beginner">Beginner: I want guardrails</option>
+                <option value="learning">Learning: I can follow Git steps</option>
+                <option value="terminal">Comfortable: terminal is fine</option>
+              </select>
+            </label>
+            <label>
+              On-the-go work
+              <select id="mobile">
+                <option value="review">Review ideas and delegate tasks</option>
+                <option value="hands-on">Edit and steer work from iOS</option>
+                <option value="rare">Mostly work at home</option>
+              </select>
+            </label>
+            <label>
+              Home setup
+              <select id="home">
+                <option value="windows">Windows desktop</option>
+                <option value="ide">VS Code or another IDE</option>
+                <option value="terminal">Terminal-first workflow</option>
+              </select>
+            </label>
+            <label>
+              GitHub preference
+              <select id="github">
+                <option value="simple">Keep GitHub simple</option>
+                <option value="prs">Learn branches and PRs</option>
+                <option value="actions">Use issue comments and Actions</option>
+              </select>
+            </label>
+          </form>
+
+          <aside id="recommendation" class="recommendation" aria-live="polite">
+            <span class="label">Recommendation</span>
+            <h2 id="winner">Start with OpenAI Codex</h2>
+            <p id="reason">
+              Codex is the smoother first tool when you want a Windows app, ChatGPT account flow, and GitHub-connected cloud work.
+            </p>
+            <div class="meter" aria-label="Fit scores">
+              <div>
+                <span>Codex</span>
+                <div class="bar"><i id="codexBar"></i></div>
+                <b id="codexScore">78</b>
+              </div>
+              <div>
+                <span>Claude Code</span>
+                <div class="bar"><i id="claudeBar"></i></div>
+                <b id="claudeScore">55</b>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="compare" class="band compare">
+        <div class="section-heading">
+          <p class="eyebrow">Side-by-side</p>
+          <h2>What matters when you are not a coder yet.</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Comparison categories">
+          <button class="tab active" type="button" data-tab="beginner">Beginner Fit</button>
+          <button class="tab" type="button" data-tab="mobile">iOS + Windows</button>
+          <button class="tab" type="button" data-tab="github">GitHub Flow</button>
+          <button class="tab" type="button" data-tab="risk">Risk</button>
+        </div>
+        <div class="comparison-panel">
+          <article>
+            <h3>OpenAI Codex</h3>
+            <ul id="codexList"></ul>
+          </article>
+          <article>
+            <h3>Claude Code</h3>
+            <ul id="claudeList"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="band roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Suggested path</p>
+          <h2>A low-stress way to use both.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <h3>Use Codex as the home base</h3>
+            <p>Keep learning GitHub in one repo, ask for branches and small PRs, and review diffs before merging.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Build a few small websites</h3>
+            <p>Use static projects first: HTML, CSS, JavaScript, notes, and GitHub Pages.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Add Claude Code when terminal work feels normal</h3>
+            <p>Bring it in for command-line pairing, issue-driven automation, or a second opinion on tricky code.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sources" class="band sources">
+        <div class="section-heading">
+          <p class="eyebrow">Sources</p>
+          <h2>Official docs used for this guide.</h2>
+        </div>
+        <ul>
+          <li><a href="https://help.openai.com/en/articles/11369540-icodex-in-chatgpt">OpenAI Help: Using Codex with your ChatGPT plan</a></li>
+          <li><a href="https://help.openai.com/en/articles/6825453-chatgpt-apps-on-ios-and-android">OpenAI Help: ChatGPT release notes</a></li>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Anthropic Docs: Claude Code overview</a></li>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/github-actions">Anthropic Docs: Claude Code GitHub Actions</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
